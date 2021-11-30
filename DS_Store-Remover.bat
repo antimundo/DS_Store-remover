@@ -1,21 +1,22 @@
 @echo off
 
-echo 1. Delete all .DS_Store in this folder.
-echo 2. Delete all .DS_Store recursively.
-echo 3. Exit
-choice /C 123 /M "Enter your choice "
+echo The current folder is %CD%
+echo 1. Remove all .DS_Store files in this folder.
+echo 2. Remove all .DS_Store files recursively.
+echo 3. Exit.
+choice /C 123 /n /m "Choose an option [1,2,3]: "
 GOTO LABEL-%ERRORLEVEL%
 
 :LABEL-1 ThisFolder
 PAUSE
-del /q /f /a .DS_STORE
-echo deleted all .DS_Store files in this folder 
+del /f .DS_STORE
+echo Removed all .DS_Store files in this folder 
 GOTO LABEL-3
 
 :LABEL-2 Recursively
 PAUSE
-del /s /q /f /a .DS_STORE
-echo deleted all .DS_Store files recursively 
+del /s /f .DS_STORE
+echo Removed all .DS_Store files recursively 
 GOTO LABEL-3
 
 :LABEL-3 End
